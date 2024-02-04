@@ -1,7 +1,7 @@
-rootProject.name = "boilerplate"
+rootProject.name = "spring-security-in-action-practice"
 
 pluginManagement {
-    val kotlinVersion = "1.8.22"
+    val kotlinVersion = "1.9.22"
     val springBootVersion = "3.2.0"
     val springDependencyManagementVersion = "1.1.4"
 
