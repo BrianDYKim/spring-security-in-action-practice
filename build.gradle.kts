@@ -76,8 +76,6 @@ allprojects {
 val nonDependencyProjects = listOf("common")
 
 configure(subprojects.filter { it.name !in nonDependencyProjects }) {
-    apply(plugin = "kotlin-jpa")
-
     apply(plugin = "kotlin-kapt")
 
     apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
