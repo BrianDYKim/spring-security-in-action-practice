@@ -1,23 +1,20 @@
-package team.me.chapter3.model
+package team.me.chapter3.service.user
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
+import team.me.chapter3.service.user.dto.FindUser
 
-class User(
-    private val username: String,
-    private val password: String,
-    private val authority: String,
-) : UserDetails {
+class CustomUserDetails(private val user: FindUser.Response) : UserDetails {
     override fun getAuthorities(): List<GrantedAuthority> {
-        return listOf(GrantedAuthority { authority })
+        return user.authorities.map { GrantedAuthority { it } }
     }
 
     override fun getPassword(): String {
-        return password
+        return user.password
     }
 
     override fun getUsername(): String {
-        return username
+        return user.username
     }
 
     override fun isAccountNonExpired(): Boolean {

@@ -1,25 +1,33 @@
 package team.me.chapter3.security
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.crypto.password.NoOpPasswordEncoder
-import org.springframework.security.crypto.password.PasswordEncoder
-import team.me.chapter3.model.User
-import team.me.chapter3.service.InMemoryUserDetailsService
+import org.springframework.security.web.SecurityFilterChain
+import team.me.chapter3.service.user.JpaUserDetailsService
 
 @Configuration
-class SecurityConfig {
+@EnableWebSecurity
+class SecurityConfig(private val userDetailsService: JpaUserDetailsService) {
     @Bean
-    fun userDetailsService(): UserDetailsService {
-        val user = User("john", "1234", "USER")
-        val users = listOf(user)
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+        http.httpBasic()
 
-        return InMemoryUserDetailsService(users)
+        http.authorizeHttpRequests { auth ->
+            auth.anyRequest().authenticated()
+        }
+
+        return http.build()
     }
 
-    @Bean
-    fun passwordEncoder(): PasswordEncoder {
-        return NoOpPasswordEncoder.getInstance()
+    @Autowired
+    fun configureAuthentication(auth: AuthenticationManagerBuilder) {
+        auth
+            .userDetailsService(userDetailsService)
+            .passwordEncoder(NoOpPasswordEncoder.getInstance())
     }
 }
