@@ -24,6 +24,8 @@ class SecurityConfig(private val userDetailsService: JpaUserDetailsService) {
         return http.build()
     }
 
+    // 인증 흐름 : AuthenticationManager -> AuthenticationProvider -> UserDetailsService + PasswordEncoder
+
     @Autowired
     fun configureAuthentication(auth: AuthenticationManagerBuilder) {
         auth
