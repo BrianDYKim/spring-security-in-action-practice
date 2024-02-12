@@ -17,24 +17,24 @@ import team.me.chapter6.domain.entity.enums.EncryptionAlgorithm
 open class User protected constructor() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long = 0
+    open var id: Long = 0
         protected set
 
     @Column(name = "username", nullable = false)
-    var username: String = ""
+    open var username: String = ""
         protected set
 
     @Column(name = "password", nullable = false)
-    var password: String = ""
+    open var password: String = ""
         protected set
 
     @Enumerated(EnumType.STRING)
     @Column(name = "algorithm", nullable = false)
-    var algorithm: EncryptionAlgorithm = EncryptionAlgorithm.BCRYPT
+    open var algorithm: EncryptionAlgorithm = EncryptionAlgorithm.BCRYPT
         protected set
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    var authorities: MutableSet<Authority> = mutableSetOf()
+    open var authorities: MutableSet<Authority> = mutableSetOf()
         protected set
 
     constructor(username: String, password: String, algorithm: EncryptionAlgorithm) : this() {

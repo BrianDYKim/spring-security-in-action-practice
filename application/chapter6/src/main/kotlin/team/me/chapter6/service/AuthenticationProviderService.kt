@@ -1,5 +1,6 @@
 package team.me.chapter6.service
 
+import org.slf4j.LoggerFactory
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -18,12 +19,16 @@ class AuthenticationProviderService(
     private val bcryptPasswordEncoder: BCryptPasswordEncoder,
     private val sCryptPasswordEncoder: SCryptPasswordEncoder,
 ) : AuthenticationProvider {
+    private val logger = LoggerFactory.getLogger(this::class.java)
+
     @Throws(AuthenticationException::class)
     override fun authenticate(authentication: Authentication): Authentication {
         val username = authentication.name
         val password = authentication.credentials.toString()
 
         val userDetails = userDetailsService.loadUserByUsername(username)
+
+        logger.info(bcryptPasswordEncoder.encode("12345"))
 
         return when (userDetails.user.algorithm) {
             EncryptionAlgorithm.BCRYPT -> checkPassword(userDetails, password, bcryptPasswordEncoder)

@@ -5,7 +5,7 @@ dependencies {
 
     // jpa
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("com.mysql:mysql-connector-java")
+    runtimeOnly("com.mysql:mysql-connector-j")
 
     // security
     implementation("org.springframework.boot:spring-boot-starter-security")
