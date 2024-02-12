@@ -26,4 +26,4 @@ pluginManagement {
 // modules
 include("common")
 include("core", "core:domain", "core:external")
-include("application", "application:chapter2", "application:chapter3", "application:chapter4", "application:chapter5")
+include("application", "application:chapter2", "application:chapter3", "application:chapter4", "application:chapter5", "application:chapter6")
