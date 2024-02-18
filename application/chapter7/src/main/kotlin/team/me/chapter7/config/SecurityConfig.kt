@@ -22,7 +22,7 @@ class SecurityConfig {
 
         http.authorizeHttpRequests {
             // 어떤 권한이든 WRITE 권한을 가지고 있어야함
-            it.anyRequest().hasAuthority("WRITE")
+            it.anyRequest().hasAnyAuthority("WRITE", "READ")
         }
 
         return http.build()
