@@ -34,4 +34,5 @@ include(
     "application:chapter5",
     "application:chapter6",
     "application:chapter7",
+    "application:chapter8",
 )
