@@ -1,3 +1,5 @@
+apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
+
 dependencies {
     implementation(project(":common"))
 

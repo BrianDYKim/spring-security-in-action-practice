@@ -9,9 +9,10 @@ plugins {
     id("io.spring.dependency-management")
     id("org.jetbrains.kotlin.plugin.allopen")
     id("org.jetbrains.kotlin.plugin.noarg")
+    id("org.jetbrains.kotlin.plugin.jpa")
     kotlin("jvm")
     kotlin("plugin.spring")
-    kotlin("plugin.jpa")
+//    kotlin("plugin.jpa")
 
     kotlin("kapt")
 
@@ -77,9 +78,6 @@ val nonDependencyProjects = listOf("common")
 
 configure(subprojects.filter { it.name !in nonDependencyProjects }) {
     apply(plugin = "kotlin-kapt")
-
-    apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
-    apply(plugin = "org.jetbrains.kotlin.plugin.noarg")
 
     dependencies {
         // Spring
