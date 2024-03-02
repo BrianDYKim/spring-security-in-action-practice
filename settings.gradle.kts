@@ -14,7 +14,7 @@ pluginManagement {
         id("org.jetbrains.kotlin.plugin.noarg") version kotlinVersion
         kotlin("jvm") version kotlinVersion
         kotlin("plugin.spring") version kotlinVersion
-        kotlin("plugin.jpa") version kotlinVersion
+        id("org.jetbrains.kotlin.plugin.jpa") version kotlinVersion
 
         kotlin("kapt") version kotlinVersion
 
@@ -37,4 +37,5 @@ include(
     "application:chapter8",
     "application:chapter9",
     "application:chapter10",
+    "application:chapter11-auth",
 )
