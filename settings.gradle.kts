@@ -38,4 +38,5 @@ include(
     "application:chapter9",
     "application:chapter10",
     "application:chapter11-auth",
+    "application:chapter12",
 )
