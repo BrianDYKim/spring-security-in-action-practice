@@ -8,4 +8,10 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-security")
     testImplementation("org.springframework.security:spring-security-test")
+
+    // thymeleaf
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    // oAuth
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 }
