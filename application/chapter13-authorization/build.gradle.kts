@@ -14,4 +14,7 @@ dependencies {
 
     // oAuth
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+
+    // OAuth Authorization Server
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
 }
