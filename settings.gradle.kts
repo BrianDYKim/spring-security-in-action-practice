@@ -40,4 +40,5 @@ include(
     "application:chapter11-auth",
     "application:chapter12",
     "application:chapter13-authorization",
+    "application:chapter14-resource",
 )
